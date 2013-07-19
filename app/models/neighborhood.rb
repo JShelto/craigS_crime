@@ -17,6 +17,7 @@ class Neighborhood < ActiveRecord::Base
 		((self.crimes / Crime.count ) * 100).round(2)
 	end
 
+#The neighbood's associated crime percentage is pushed into an array 
 	def neighborhood_percentages
 		hoods = []
 		percentages = self.crime_percentage

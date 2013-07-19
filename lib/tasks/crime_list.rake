@@ -1,4 +1,7 @@
+#a rake task designed to access the data.sfgov.org api and make requests from incidents of crime
+
 require 'net/http'
+require 'open-uri'
 require 'json'
 
 
@@ -25,6 +28,7 @@ require 'json'
          crime_incidence_hash[:x_coordinate] = crime[:x]
          crime_incidence_hash[:y_coordinate] = crime[:y]
          @crime = Crime.new(crime_incidence_hash)
+         #saves each incident of crime to the database with its respective info
          @crime.save
 	end 
 end
