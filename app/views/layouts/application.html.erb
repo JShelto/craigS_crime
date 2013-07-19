@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CraigsScout SF</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<header>
+<div class="container">
+	<div class="describer">Crime Key</div>
+	<div class="red">greater than 20%</div>
+	<div class="orange">15-19%</div>
+	<div class="yellow">10-15%</div>
+	<div class="blue">5-10%</div>
+	<div class="green"> less than 5% </div>
+</div>
+	<h2>CraigsScout SF</h2>
+</header>
+
+<body>
+
+<%= yield %>
+
+<footer>
+	<h6>Copyright, 2013   |   Disclaimer: This site is not affiliated with craigslist.org.</h6>
+</footer>
+</body>
+
+</html>
+
+

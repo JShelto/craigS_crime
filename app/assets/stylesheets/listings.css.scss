@@ -1,0 +1,82 @@
+// Place all the styles related to the listings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+body {
+	font-family:helvetica;
+	text-align:center
+}
+
+section {
+	width: 630px;
+	margin: 0px auto;
+}
+.title {
+	text-align:center
+}
+
+article.unit {
+	overflow:hidden;
+}
+
+.current {
+	background: #eeeeee;
+	color: #551a8b;
+	text-align:center
+}
+
+footer {
+	text-align:center
+}
+
+.linking{
+	display: inline-block;
+	padding: 5px
+}
+
+
+.rating {
+ width: 50px; 
+ height: 50px; 
+ border-radius: 60px; 
+ float:left;
+}
+
+p {
+ text-align: center;
+ font-weight: bold;
+ font-stretch: 5px;
+ padding: 3px
+}
+
+.date {
+	text-align:center
+}
+
+
+.container {
+	font-family:helvetica;
+	height :100px;
+	width: 125px;
+	position: fixed;
+	top: 40px;
+	right: 5px;
+}
+ .describer {
+ 	background: #eeeeee;
+	color: #551a8b;
+	font-weight: bold
+}
+ .red{
+	background: #ff6666
+} .orange {
+	background: #ffab66
+} .yellow {
+	background: #ffff66
+} .blue {
+	background: #9c99ff
+} .green {
+	background: #64ff5c
+}
