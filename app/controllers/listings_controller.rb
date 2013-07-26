@@ -2,12 +2,12 @@ class ListingsController < ApplicationController
 
 	def index
 		@listings =[]
-		url = open("http://sfbay.craigslist.org/sfc/apa/")
-		# url = open("craigslist.html")
+		# url = open("http://sfbay.craigslist.org/sfc/apa/")
+		url = open("public/craigslist.html")
 		url_data = Nokogiri::HTML(url)
 		url_data.css(".row").each do |x|
 			#for each anchor tag, take the href attr and insert the following as the zero-th element
-			x.css("a").each {|a| a["href"] = a["href"].insert(0,"http://sfbay.craigslist.org")}
+			# x.css("a").each {|a| a["href"] = a["href"].insert(0,"http://sfbay.craigslist.org")}
 			#takes each attribute and puts it into a hash with custom keys paired to the selectors provided by the site
 			l = {}
 			l[:link] = x.css('a')[1].attr('href')
