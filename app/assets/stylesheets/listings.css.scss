@@ -10,7 +10,7 @@ body {
 }
 
 section {
-	width: 630px;
+	width: 640px;
 	margin: 0px auto;
 }
 .title {
@@ -36,6 +36,9 @@ footer {
 	padding: 5px
 }
 
+.infoing {
+	font-family: karla;
+}
 
 .rating {
  width: 50px; 
@@ -63,6 +66,7 @@ p {
 	position: fixed;
 	top: 40px;
 	right: 5px;
+	border-radius: 5px;
 }
  .describer {
  	background: #eeeeee;

@@ -18,13 +18,13 @@ class Neighborhood < ActiveRecord::Base
 	end
 
 #The neighbood's associated crime percentage is pushed into an array 
-	def neighborhood_percentages
-		hoods = []
-		percentages = self.crime_percentage
-		percentages.each do |x|
-			hoods.push(x)
-		end
-	end
+	# def neighborhood_percentages
+	# 	hoods = []
+	# 	percentages = self.crime_percentage
+	# 	percentages.each do |x|
+	# 		hoods.push(x)
+	# 	end
+	# end
 
 
 end

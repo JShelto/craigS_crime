@@ -1,7 +1,6 @@
 #a rake task designed to access the data.sfgov.org api and make requests from incidents of crime
 
 require 'net/http'
-require 'open-uri'
 require 'json'
 
 
