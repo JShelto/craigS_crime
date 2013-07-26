@@ -7,7 +7,7 @@ require 'json'
 			# get access to your models and environment by making tasks dependent on the environment task
 	namespace :crime_listing do		
 	task :crime_get => :environment do	
-		url_string = "http://data.sfgov.org/resource/tmnf-yvry.json?$limit=1000&$offset=30776&$$app_token=ocZnsjiY6hEf8Q1fdcNkxh5r2"
+		url_string = "http://data.sfgov.org/resource/tmnf-yvry.json?$limit=1000&$offset=0&$$app_token=ocZnsjiY6hEf8Q1fdcNkxh5r2"
 		url = URI.parse(url_string)
 			#performs basic authentication of the uri
 		req = Net::HTTP::Get.new(url_string)
