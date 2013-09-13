@@ -30,7 +30,6 @@ require 'json'
          @crime = Crime.new(crime_incidence_hash)
          #saves each incident of crime to the database with its respective info
          @crime.save
-	end 
-end
-
+	   end 
+    end
 end
