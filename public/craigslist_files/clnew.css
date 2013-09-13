@@ -76,7 +76,7 @@ ul.ul li, ol.ol li {
 }
 .highlight,.error {
     background: #ffc;
-    font-family:sans-serif;
+    font-family: sans-serif;
     padding: 8px;
     border: #ff8 solid 1px;
 }
@@ -87,7 +87,7 @@ fieldset {
     border: 2px groove #ccc;
     padding: 0.35em 0.625em 0.75em;
 }
-legend { font-weight: bold; font-family: sans-serif; font-size: small; margin-left: 1em;}
+legend { font-family: sans-serif; font-size: small; margin-left: 1em;}
 .ban {
     text-align:center;
     font-weight:bold;
@@ -108,6 +108,23 @@ legend { font-weight: bold; font-family: sans-serif; font-size: small; margin-le
     min-height: 100%;
     position: relative;
 }
+
+.draft_warning {
+    background: #000;
+    color: #fff;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 120%;
+    border: 1px solid #bb4;
+    padding: 5px 5px 1.2em 5px;
+    margin: 2px;
+}
+.draft_warning button {
+    float: right;
+    font-size: 116%;
+    margin-top: 0.2em;
+}
+
 .shadow {
        -moz-box-shadow: 3px 3px 4px #222;
        -webkit-box-shadow: 3px 3px 4px #222;
@@ -180,21 +197,19 @@ section.body {
     background-position: 0px -112px;
     display: inline-block;
     visibility: hidden;
+    vertical-align: text-top;
 }
 .star.v       { visibility: visible; }
 .star:hover,
-   .star.half { background-position: 0px -128px; }
+.star.half { background-position: 0px -128px; }
 .star:hover   { background-color: #eee; }
 .star.fav     { background-position: 0px -144px; }
 
-     h4 .star { display: inline-block; }
+h4 .star { display: inline-block; }
 .pic h4 .star {
+    /* move "select all" header star over to line up with stars pushed right by thumbnail pic */
     position: relative;
-    left: 55px;
-}
-h4 .delfaves {
-    position: relative;
-    top: -2px;
+    left: 60px;
 }
 
 /* favorites box */
@@ -402,7 +417,6 @@ abbr.timeago {
 }
 
 .posting div.reply_options li { padding: 2px; }
-.posting div.reply_options li:hover { background: #eee; }
 
 .posting div.reply_options li a {
     text-decoration: none;
@@ -448,42 +462,42 @@ abbr.timeago {
  ***************/
 
 .iw {
-    height: 330px;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
-.w1024 .iw { height: 450px; }
 
-.iw #iwt,
 .iw #thumbs {
-    float: left;
-    margin-top: 1px;
-    margin-right: 2px;
 }
 
-.iw #iwt img,
+.iw #thumbs a {
+    text-decoration: none;
+}
+
 .iw #thumbs img {
+    display: inline;
+    position: relative;
     height: 40px;
     width: 40px;
-    margin-bottom: 2px;
+    border: solid 1px transparent;
+    opacity: .7;
 }
-.w1024 .iw #iwt img,
 .w1024 .iw #thumbs img {
-    height: auto;
-    width: auto;
+    height: 48px;
+    width: 48px;
 }
-.iw #iwt br { display: none; }
 
-.iw img            { display: block; }
-.iw img.hover      { margin-left: -4px; }
-.iw #iwt img.hover { margin-left:  4px; }
+.iw #thumbs img.selected {
+    border: solid 1px orange;
+    -webkit-box-shadow: 0 0 0 1px orange;
+    -moz-box-shadow: 0 0 0 1px orange;
+    box-shadow: 0 0 0 1px orange;
+    opacity: 1;
+}
 
 .iw #ci {
-    text-align: center;
     position: relative;
     width: 440px;
     height: 330px;
     border: 1px solid #eeeeee;
-    float: left;
 }
 .w1024 .iw #ci {
     width: 600px;
@@ -515,6 +529,7 @@ abbr.timeago {
 }
 .posting.w1024 #attributes {
     width: 300px;
+    margin-right: 50px;
 }
 
 .posting #attributes #terms {
@@ -647,7 +662,17 @@ abbr.timeago {
     margin: 1em 0;
 }
 
-.toc .sortby { float: right; }
+.toc .sortby {
+    float: right;
+    font-family: sans-serif;
+    font-size: smaller;
+}
+.toc .mobile .sortby {
+    font-family: sans-serif;
+    font-size: smaller;
+    text-align: center;
+    margin: 8px auto;
+}
 
 /******************* header ******************/
 #pagecontainer header .contents .breadcrumbs .crumb:after {
@@ -669,7 +694,7 @@ abbr.timeago {
     position: fixed;
     z-index: 1002;
     width: 100%;
-    padding-bottom: 0;
+    padding: 0;
 }
 /* don't show the preview header as part of the post creation process */
 .post.mobile .body .posting header {
@@ -678,7 +703,7 @@ abbr.timeago {
 .toc.mobile #pagecontainer header .contents,
 .posting.mobile #pagecontainer header .contents {
     height: 24px;
-    margin-bottom: 5px;
+    padding: 5px 0;
     -moz-transition: height 0.3s;
     -webkit-transition: height 0.3s;
     -o-transition: height 0.3s;
@@ -706,9 +731,13 @@ abbr.timeago {
 }
 .mobile #pagecontainer header .contents .back {
     display: block;
-    float: left;
+    position: absolute;
     margin: 0 10px 0 0;
-    font-size: 14px;
+    font-size: 1em;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 10;
 }
 .mobile #pagecontainer header .contents .dropdown {
     float: right;
@@ -735,11 +764,12 @@ abbr.timeago {
 .nojs .toc .modebtns { display: none; }
 .toc .modebtns button {
     color: #000;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
     background-color: #ccf;
     border-color: #88c;
     min-height: 32px;
+    cursor: pointer;
 }
 .toc .modebtns button.down {
     color: #fff;
@@ -751,41 +781,55 @@ abbr.timeago {
 .toc .modebtns button.down:hover { background-color: #66b; }
 /*********************** end modebuttons ******************/
 
+/*
+ * searchform
+ */
 .toc #searchfieldset {
     border: 1px solid #ccc;
     padding: 0 0 5px 0;
     margin: 0 auto 1em;
     max-width: 768px;
 }
-.toc.w1024  #searchfieldset { max-width: 980px; }
-
+.toc.w1024  #searchfieldset {
+    max-width: 980px;
+}
 .toc #searchtable {
     background: #eee;
     font-family: sans-serif;
     padding: 3px 0 0 10px;
 }
+.toc #catAbb,
+.toc #catAbbUI,
+.toc #hoodtitle,
+.toc #searchtable label,
+.toc #searchtable select,
 .toc #searchtable input {
-    font-family: serif;
+    font-family: sans-serif;
+    font-size: 100%;
+    cursor: pointer;
+    border-radius: 5px;
 }
-
-.toc #searchtable #searchchecks { float: right; }
-
-.toc #searchtable #hoodpicker { display: inline-block; }
+.toc #searchtable .searchgroup .dv {
+    cursor: auto;
+}
+.toc #searchtable #searchchecks {
+    display: none;
+}
+.toc #searchtable #hoodpicker {
+    display: inline-block;
+}
 .toc #searchtable .searchgroup {
     white-space: nowrap;
-    margin: 4px 8px 4px 0;
-    display: inline-block;
+    margin: 4px 4px 4px 0;
     vertical-align: middle;
     line-height: 1.5em;
+    display: inline-block;
 }
-
 .toc #hoodcount {
     min-width: 1em;
     display: inline-block;
     text-align: right;
 }
-
-.toc #hoodtitle { cursor: pointer; }
 .toc #hoodtogon, .toc #hoodtogoff {
     font-family: monospace;
     font-weight: bold;
@@ -833,7 +877,7 @@ abbr.timeago {
     margin-top: 10px;
 }
 .toc .resultshdr {
-    padding: 5px;
+    padding: 5px 0;
     margin: .1em 0 1em 0;
     color: #aaa;
     font-family: sans-serif;
@@ -847,6 +891,7 @@ abbr.timeago {
 .toc .resultshdr .nplink.next { float: right; }
 .toc .resultshdr .nplabel { font-size: .9em; margin: 0 5px; }
 .toc .resultshdr .pagenum { color: #222; font-weight: normal; }
+.toc .resultshdr .favheader { text-align: left; }
 
 .toc .row { clear: both; }
 .toc .row .i {
@@ -867,6 +912,13 @@ abbr.timeago {
 
 .toc .row .date:after,
 .toc .row .pl:after { content: ' - '; }
+.toc .row .date {
+    font-size: smaller;
+    display: none;
+}
+.toc.search .row .date {
+    display: inline;
+}
 .toc .row #mapcontainer .date:after,
 .toc.pic .row .pl:after { content: ''; }
 .toc.pic .row {
@@ -874,18 +926,18 @@ abbr.timeago {
     margin: 10px 0;
 }
 .toc .row .price {
-    font-size: 90%;
+    font-size: .8em;
     border: 1px solid #ccc;
     border-radius: 0.25em;
-    -o-border-radius: 0.25em;
-    -ms-border-radius: 0.25em;
     -moz-border-radius: 0.25em;
     -webkit-border-radius: 0.25em;
     padding: 1px 3px;
 }
 
-.toc.pic .row .pl { display: block; }
-.toc.pic .row .l2 { font-size: 90%; }
+.toc.pic .row .pl {
+    display: block;
+}
+.toc.pic .row .l2 { line-height: 1.5em; }
 
 .toc .row .i img {
     border: 0;
@@ -912,55 +964,44 @@ abbr.timeago {
 .toc .gc:hover { background: #f7f7f7; }
 
 .toc.grid #toc_rows h4.ban { margin-bottom: 1.5em; }
-.toc.grid.mobile #toc_rows h4.ban { margin-bottom: .1em; }
-.toc.grid #toc_rows p.row {
+.toc.grid #toc_rows .row {
     width: 302px;
     height: 290px;
     margin: 0 12px 16px 0;
     border: 1px solid #fff;
     overflow: hidden;
-    clear: none;
-    float: left;
+    display: inline-block;
+    vertical-align: top;
     position: relative;
+    /* ie6 and 7 don't support "display: inline-block" so here's an ugly hack */
+    zoom: 1;
+    *display: inline;
+    /* end ugly ie6/7 hack */
 }
-.toc.grid.mobile #toc_rows p.row {
-    white-space: normal;
-    height: 315px;
-    padding: 16px 0 0 0;
-    margin: 0 0 0 9px;
-    border: none;
-    overflow: visible;
-}
-.toc.grid #toc_rows p.row:hover {
+.toc.grid #toc_rows .row:hover {
     border-color: #aaa;
 }
-.toc.grid.mobile #toc_rows p.row:hover {
-    border-color: #ccc;
+.toc.grid.mobile #toc_rows .row:hover {
+    border-color: #fff;
 }
 .toc.grid #toc_rows .row .pnr,
 .toc.grid #toc_rows .row .gc,
 .toc.grid #toc_rows .row .pl:after { content: ''; }
-.toc.grid #toc_rows .row .pl { white-space: nowrap; }
-.toc.grid.mobile #toc_rows .gc { display: none; }
-
-.toc.grid.mobile #toc_rows .row .pl a {
+.toc.grid #toc_rows .row .pl {
     white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    width: 302px;
     display: block;
+    line-height: 1.2em;
+    max-height: 2.4em;
+    overflow: hidden;
+    width: 100%;
 }
-
+.toc.grid #toc_rows .row .l2 {
+    line-height: 1.3em;
+}
+.toc.grid #toc_rows .row .star { vertical-align: top; }
+.toc.grid #toc_rows .row .pl a { white-space: normal; }
+.toc.grid #toc_rows .gc { white-space: normal; }
 .toc.grid #toc_rows .px { display: none; }
-
-.toc.grid #toc_rows .pnr { display: block; }
-
-.toc.grid.mobile #toc_rows .pp {
-    margin: 5px 7px;
-}
-.toc.grid.mobile #toc_rows .price {
-    font-size: 1.25em;
-}
 
 .toc.grid #toc_rows .i {
     width: 300px;
@@ -989,7 +1030,6 @@ abbr.timeago {
     width: auto;
 }
 
-.toc.grid #toc_rows .pnr { white-space: nowrap; }
 .toc.grid #toc_rows .cg { position: absolute; bottom: 0; right: 0; }
 .toc.grid #toc_rows .date { display: none; }
 
@@ -1093,46 +1133,27 @@ abbr.timeago {
 .toc.mobile .row {
     margin: 0;
     padding: 3px;
-    font-size: 12px;
-    line-height: 22px;
-    min-height: 4.4em;
+    line-height: 1.5em; /* 24/16 */
     overflow: hidden;
     white-space: nowrap;
     cursor: pointer;
     position: relative;
     border-top: 1px #ccc solid;
 }
-.toc.mobile .row .pl>a { font-size: 17px; }
-.toc.mobile .row a { text-decoration: none; }
-.toc.mobile.pic .row .i {
-    width: 55px;
-    height: 50px;
-    position: relative;
+.toc.mobile .row a {
+    white-space: normal;
+    text-decoration: none;
 }
-/* in pic and grid view, float price bubble over picture */
-.toc.mobile.pic .row .pp,
-.toc.mobile.grid .row .pp {
-    z-index: 100;
-    color: #fff;
-    font-weight: bold;
-    font-family: sans-serif;
-    padding: 1px;
-    position: absolute;
-    margin: 2px;
-    top: 0;
-    left: 0;
+.toc.mobile .row .pl {
+    font-size: 1.0625em; /* 17/16 */
+    max-height: 2.9em; /* two lines max */
+    overflow: hidden;
+    display: block;
 }
-/* only prices overlaid on images should have background color */
-.toc.mobile.grid .row .pp .price,
-.toc.mobile.pic .row .pp .price {
-    background-color: #080; 
+.toc.mobile.pic .row .pl {
+    /* pic view on mobile shows only one row of title so price will be visible on second row */
+    height: 1.4em;
 }
-.toc.mobile .row .price { 
-    border-radius: 0.75em;
-    -moz-border-radius: 0.75em;
-    -webkit-border-radius: 0.75em;
-}
-.toc.mobile .row .pl { display: block; }
 .toc.mobile .row img { margin-right: 5px; }
 .toc.mobile .row .pl:after { content: '' }
 .toc.mobile .gc {
@@ -1314,26 +1335,32 @@ div#shareSocial a:hover { background-color: #eee; }
 }
 .post .picker label {
     line-height: 1.8em;
+    cursor: pointer;
+}
+.post .picker label input[type=checkbox],
+.post .picker label input[type=radio] {
+    margin-right: 0.8em;
+    vertical-align: middle;
 }
 
 .post form#postingForm {
     font-family: sans-serif;
 }
-.post form#postingForm input,select,textarea {
+.post form#postingForm input,
+.post form#postingForm select,
+.post form#postingForm textarea {
     font-family: serif;
     font-size: 1.1em;
 }
-.post form#postingForm fieldset input,select,textarea {
+.post form#postingForm fieldset input,
+.post form#postingForm fieldset select,
+.post form#postingForm fieldset textarea {
     font-size: 1em;
 }
 .post form#postingForm select {
     min-width: 6em;
 }
-.post form#postingForm textarea {
-    border: 1px solid green;
-}
-
-.post .formnote { 
+.post .formnote {
     font-family: sans-serif;
 }
 .post .fieldlabel {
@@ -1373,6 +1400,9 @@ div#shareSocial a:hover { background-color: #eee; }
 .post form { display: inline; }
 
 .post p { padding-bottom: 20px; }
+
+.post       #housingBlurb { width: 754px; }
+.post.w1024 #housingBlurb { width: 954px; }
 .post #housingBlurb p { margin: 1em 0; }
 .post #housingBlurb ul {
     padding-left: 40px;
@@ -1409,7 +1439,8 @@ div#shareSocial a:hover { background-color: #eee; }
 .post span.err { color: red; }
 
 .post input.nreq { border: black 1px solid; }
-.post input.req { border: green 1px solid; }
+.post input.req,
+    .post textarea.req{ border: green 1px solid; }
 .post input.err,
     .post textarea.err { border: red 2px solid; }
 
@@ -1869,7 +1900,7 @@ Login page
     font-size: 235%;
     line-height: 135%;
     font-weight: 500;
-    font-family: serif;
+    font-family: "times new roman", times, serif;
     width: 100%;
 }
 
@@ -1945,7 +1976,7 @@ Login page
 
 .homepage #topban h2 {
     display: inline;
-    font-family: serif;
+    font-family: "times new roman", times, serif;
     font-size: 1.5em;
     line-height: 1.2em;
 }
@@ -2154,7 +2185,7 @@ Login page
   color: #551A8B;
   text-align: center;
   font-weight: 500;
-  font-family: serif;
+  font-family: "times new roman", times, serif;
   font-stretch: expanded;
   width: 100%;
   margin: 0 auto;
@@ -2182,7 +2213,7 @@ Login page
 
 .sites h1 {
   border-bottom: 1px solid #ccc;
-  font-family: serif;
+  font-family: "times new roman", times, serif;
   font-size: 31px;
   line-height: 31px;
   margin: 0.67em auto;
@@ -2261,8 +2292,8 @@ Login page
     white-space: normal;
 }
 .sites #map {
-  width:600px;
-  height:300px;
+  width: inherit;
+  height: 410px;
   margin: 0 auto;
 }
 .sites .marker-cluster {
@@ -2343,7 +2374,7 @@ Login page
 div#mapprob {
   visibility: hidden;
   background: #eeeeee;
-  border: 1px solid #ccccc;
+  border: 1px solid #ccc;
   padding: 10px;
 }
 
@@ -2354,7 +2385,6 @@ div#mapprob {
 ul.ui-autocomplete a {
     position: relative;
 }
-
 ul.ui-autocomplete span.local {
     margin-right: 3em;
 }
@@ -2371,6 +2401,36 @@ ul.ui-autocomplete span.remove:hover {
     border-color: #eee;
     background: #f8f8f8;
 }
+
+/* CL marker icons (+) */
+.cl-marker-icon {
+  border: 1px solid #666;
+  background-color: rgba(158,114,252,0.6);
+  box-shadow: 1px 1px 1px 1px rgba(96,96,96,0.6);
+}
+.cl-marker-icon-visited {
+  border: 1px solid #999;
+  background-color: rgba(250,114,252,0.25);
+  box-shadow: 1px 1px 1px 1px rgba(96,96,96,0.75);
+}
+.cl-marker-icon, .cl-marker-icon-visited {
+  border-radius: 10px 10px 10px 10px;
+}
+.cl-marker-icon:hover {
+  top: +2px;
+  left: +2px;
+}
+.cl-marker-icon-visited:hover {
+  top: +1px;
+  left: +1px;
+}
+.cl-marker-icon, .cl-marker-icon-visited > span {
+  font-family: courier, monospace;
+  line-height: 1.2em;
+  text-align: center;
+  display: block;
+}
+
 /* vim: et:sw=4:ts=4:lcs=tab\:▸\ ,trail\:·:list
  * */
 
