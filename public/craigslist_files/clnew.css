@@ -526,10 +526,21 @@ abbr.timeago {
 .posting #attributes {
     float: right;
     width: 280px;
+    font-family: sans-serif;
 }
 .posting.w1024 #attributes {
     width: 300px;
     margin-right: 50px;
+}
+
+.posting #attributes .attrbubble {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 0.2em;
+    padding: 0 0.2em;
+    white-space: nowrap;
+    line-height: 1.6em;
+    font-size: 90%;
 }
 
 .posting #attributes #terms {
@@ -2431,6 +2442,167 @@ ul.ui-autocomplete span.remove:hover {
   display: block;
 }
 
+/****************
+ ACCOUNT HOMEPAGE
+ ****************/
+
+.account {
+    font-family: sans-serif;
+}
+
+.account .bchead {
+    background: #eee;
+    padding: 5px 5px 0;
+    font-family: sans-serif;
+    border-bottom: 2px #ccc solid;
+    margin-bottom: 1em;
+    min-width: 768px;
+}
+
+.account .bchead .tabcontainer {
+        margin-top: 10px;
+}
+
+.account .tabcontainer {
+    font-size: smaller;
+    position: relative;
+    top: 2px;
+    overflow: hidden;
+    height: 24px;
+}
+
+.account .new_posting_thing {
+    float: right;
+    margin-top: 1em;
+}
+
+.account table.accthp_postings {
+    clear: both;
+    font-family: sans-serif;
+    border-collapse: separate;
+    border-spacing: 2px;
+}
+.account table.accthp_postings th {
+    background-color: #fff;
+}
+.account table.accthp_postings td {
+    padding: 2px;
+}
+.account table.accthp_postings td.title {
+    font-size: 80%;
+}
+.account table.accthp_postings td.areacat {
+    font-size: 90%;
+}
+.account table.accthp_postings td.dates {
+    font-size: 80%;
+}
+.account table.accthp_postings td.postingID {
+    font-size: 70%;
+}
+
+.account blockquote {
+    margin: 8px;
+}
+
+.account #ef { float: right; }
+
+.account input.managebtn {
+	color:#00f;
+	padding:0px;
+	font-size:12px;
+	font-family: sans-serif;
+	background:none;
+	border:none;
+	text-decoration:underline;
+	display:block;
+	cursor:pointer;
+ }
+
+.account #fmtsel {
+	position: static;
+	margin-bottom: auto;
+}
+
+.account.mobile {
+	margin: 0;
+	padding: 4px;
+}
+.account.mobile blockquote { display: none; }
+
+.account.mobile .bchead {
+	display: inline;
+	font-size: 10px;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.account.mobile .bchead>a {
+	font-size: 14px;
+}
+.account.mobile #satabs {
+	font-size: 14px;
+	margin-top: 10px;
+	height: 28px;
+}
+.account.mobile #satabs a { text-decoration: none; }
+
+.account.mobile #satabs>* {
+	-moz-border-radius: 0,
+	border-radius: 0,
+	width: 100%;
+	padding: 2px 4px;
+	border: 0;
+}
+.account.mobile #satabs a { background: #eee; }
+.account.mobile fieldset {
+	width: 100%;
+	border: 0;
+}
+.account.mobile #floater { display: none; }
+.account.mobile fieldset>legend   { font-size: 10px; }
+.account.mobile fieldset>legend>a { font-size: 14px; }
+.account.mobile #searchfieldset { background: white; }
+.account.mobile #searchtable {
+	background: #eee;
+	border: 1px solid #ccc;
+}
+.account.mobile table {
+	width: 100%;
+	font-size: 10px;
+}
+.account.mobile form>fieldset {
+	margin: 0;
+	padding: 0;
+}
+.account.mobile #paginator {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+.account.mobile .postingrow {
+	width: 100%;
+	margin: 0;
+	border-left: 0;
+	border-right: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	margin-bottom: 4px;
+	cursor: pointer;
+}
+.account.mobile .postingrow a {
+	font-size: 16px;
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+
 /* vim: et:sw=4:ts=4:lcs=tab\:▸\ ,trail\:·:list
  * */
+
+
+
 
