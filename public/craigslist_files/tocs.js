@@ -1,4 +1,5 @@
-$(document).ready(function(){var makeCatAbbUI=function(){var catAbb=$('#catAbb'),catAbbUI=catAbb.clone()
+$(document).ready(function(){if(!$('body').hasClass('toc')){return;}
+var makeCatAbbUI=function(){var catAbb=$('#catAbb'),catAbbUI=catAbb.clone()
 .attr({id:'catAbbUI',name:''}),acat=catAbb.find('option:selected')
 .data('acat');if(acat){catAbbUI.val(acat);}
 catAbbUI.find('option[data-acat]').remove();catAbb.hide().after(catAbbUI);}
