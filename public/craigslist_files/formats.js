@@ -129,7 +129,6 @@ return isoDate;})
 sliderHtml+='</div></div>';$figure.html(sliderHtml);CL.swipe.makeGallery($figure);}}
 function post_size_mobile(){var $header=$('header');var $managestatus=$('.managestatus');var $form=$('form');var $table=$form.find('table');$header.find('aside.highlight').appendTo('.post > header section.contents');$header.find('> br:last, #accountBlurb br').remove();$managestatus.find('a').prepend('<br>');$managestatus.find('form').prepend('<br>');$managestatus.find('table td').wrap('<tr />');$('blockquote > i').each(function(){var $this=$(this);$this.find('sup').each(function(){$(this).unwrap();});$this.prev('label').append('<br>');$this.appendTo($this.prev('label'));});if($table.attr('summary')==='neighborhood picker'){$table.find('td:last').prependTo($table.find('td blockquote'));}
 if($table.attr('summary')==='flava picka'){$table.find('td fieldset').last().appendTo($table.find('td:first'));$table.find('td:first').append('<br>');$table.find('td:last').children().appendTo($table.find('td:first'));}
-if($form.first().attr('id')==='postingForm'){$('input[size=20], input[size=30], input[size=80]').css('width','100%').attr('size',null);}
 if($('.posting').addClass('mobile').length){posting_size_mobile();}}
 function simple_size_mobile(){$('body').addClass('mobile');if($('table:first').css('width')==='706px'){$('td').each(function(){$(this).children().appendTo($('form'));});}
 if($('table:first').css('width')==='500px'){$('td').each(function(){$(this).append('<br/>').children().prependTo('#content>div:first');});}

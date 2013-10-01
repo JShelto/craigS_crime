@@ -494,9 +494,7 @@ h4 .star { display: inline-block; }
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+  z-index: 1000;
 }
 .mobile #map.leaflet-fullscreen {
   top: 34px; /* leave room for mobile header */
@@ -1474,12 +1472,12 @@ div#shareSocial a:hover { background-color: #eee; }
     vertical-align: middle;
 }
 
-.post form#postingForm {
+.post #postingForm {
     font-family: sans-serif;
 }
-.post form#postingForm input,
-.post form#postingForm select,
-.post form#postingForm textarea {
+.post #postingForm input,
+.post #postingForm select,
+.post #postingForm textarea {
     font-family: serif;
     font-size: 1.1em;
 }
@@ -1487,8 +1485,9 @@ div#shareSocial a:hover { background-color: #eee; }
     width: 20em;
 }
 .post.mobile #PostingTitle {
-    width: 100%;
     min-width: 240px;
+    margin-right: 1em;
+    width: 90%;
 }
 .post #PostingBody {
     width: 42em;
@@ -1497,34 +1496,55 @@ div#shareSocial a:hover { background-color: #eee; }
     width: 100%;
     min-width: 240px;
 }
-.post form#postingForm fieldset input,
-.post form#postingForm fieldset select,
-.post form#postingForm fieldset textarea {
+.post #FromEMail,
+.post #ConfirmEMail {
+    width: 13em;
+}
+.post.mobile #FromEMail,
+.post.mobile #ConfirmEMail {
+    min-width: 220px;
+}
+.post #postingForm fieldset input,
+.post #postingForm fieldset select,
+.post #postingForm fieldset textarea {
     font-size: 1em;
 }
-.post form#postingForm select {
+.post #postingForm select {
     min-width: 6em;
 }
 .post .formnote {
     font-family: sans-serif;
 }
+.post #mapinfo .fieldinfo {
+    display: block;
+    /* IE7 float width hack */
+    *max-width: 150px;
+}
 .post .fieldlabel {
     font-family: sans-serif;
     font-size: 80%;
 }
-.post .fieldnote { 
+.post .fieldnote {
     font-family: sans-serif;
-    float: right; 
+    float: right;
     font-size: 70%;
 }
 .post .row { width: 100%; }
-.post .row div { float: left; padding: 0 5px; margin-bottom: 5px; }
+.post .row div {
+    display: inline-block;
+    /* IE7-- inline block hack */
+    zoom: 1;
+    *display: inline;
+    /* end nasty IE7-- hack */
+    padding: 0 5px;
+    margin: 0 0 5px 0;
+}
 .post .fieldset { margin-left: 0; }
 
 .post .bigbutton { font-size: 140%; float: right; }
-.post .pickbutton { 
-    font-size: 140%; 
-    float: left; 
+.post .pickbutton {
+    font-size: 140%;
+    float: left;
     margin-top: 0.2em;
 }
 
@@ -1621,15 +1641,18 @@ div#shareSocial a:hover { background-color: #eee; }
 
 .post h5 { font-family: sans-serif; padding: 6px; border-bottom: 3px #aaa solid; } /* bye? */
 
-.nojs .post #mapinfo                { display: none; }
-      .post #mapinfo          div   { display: inline-block; padding: 0 0.2em; }
-      .post #mapinfo.disabled div   { color: #888 }
-      .post #mapinfo.disabled input { border-color: #888; }
-
+.nojs .post #mapinfo { display: none; }
+.post #mapinfo div {
+    padding: 0 0.2em;
+    vertical-align: bottom;
+}
+.post #mapinfo.disabled div { color: #888 }
+.post #mapinfo.disabled input { border-color: #888; }
 .post #geoverifymapbits { border: 1px solid #ddd; }
 .post #search_button { display: inline-block; margin: 0.2em; }
 .post #geocodebutton { display: inline-block; margin: 0.2em; float: right; }
 .post .title { white-space: nowrap; }
+.post.mobile .title { white-space: normal; }
 .post .title input { font-size: 1.1em; font-weight: bold; padding: 0 5px; }
 
 .post ol.sprlst li { margin-top: 1em; }
@@ -2612,7 +2635,8 @@ ul.ui-autocomplete span.remove:hover {
   box-shadow: 1px 1px 1px 1px rgba(96,96,96,0.75);
 }
 .cl-marker-icon, .cl-marker-icon-visited {
-  border-radius: 50%;
+  /* markers are 15px normal and 25px mobile so 15px radius should cover both */
+  border-radius: 15px;
 }
 .cl-marker-icon:hover {
   top: +2px;
