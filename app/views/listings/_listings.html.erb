@@ -1,0 +1,19 @@
+<section>
+
+  <div class="current"><h4>Current Listings</h4></div>
+
+  <div class ="date"><h4><%= raw @date %> </h4></div>
+
+  <% @listings.each do |listing| %>
+    <article class="unit">
+      <div class="linking"> <a href= <%= listing[:link] %> style="text-decoration: none;"  <br> <%= listing[:title] %> </a> </div>
+
+      <div class="rating" style="background: <%= listing[:color] %>"> <p><%= listing[:crime_percentage] %></p> </div>
+      <div class="infoing"><%= listing[:info] %> </div>
+    </article>
+    <hr>
+  <% end %>
+
+
+
+</section>
