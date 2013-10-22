@@ -1,7 +1,19 @@
 CrimeApp::Application.routes.draw do
-  resources :crimes, :listings, :neighborhoods
+  resources :crimes, :neighborhoods
 
-   root :to => 'listings#index'
+    root :to => 'listings#index'
+
+    get "listings/housing_swap"
+    get "listings/housing_wanted"
+    get "listings/office_commercial"
+    get "listings/parking_storage"
+    get "listings/real_estate"
+    get "listings/rooms_shared"
+    get "listings/sublets_temp"
+    get "listings/vacation_rentals"
+
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
