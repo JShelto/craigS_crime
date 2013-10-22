@@ -1,7 +1,8 @@
 class ListingsController < ApplicationController
 
 	def index
-		@home_page = true
+		@skip_body = true
+		@skip_footer = true
 	end
 
 	def apartments_housing
