@@ -3,6 +3,7 @@ CrimeApp::Application.routes.draw do
 
     root :to => 'listings#index'
 
+    get "listings/apartments_housing"
     get "listings/housing_swap"
     get "listings/housing_wanted"
     get "listings/office_commercial"

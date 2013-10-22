@@ -1,16 +1,6 @@
 <section>
 
-  <div class="links">
-    <li><%= link_to "apts / housing", root_path %></li>
-    <li><%= link_to "rooms / shared", listings_rooms_shared_path %></li>
-    <li><%= link_to "sublets / temporary", listings_sublets_temp_path %></li>
-    <li><%= link_to "housing wanted", listings_housing_wanted_path %></li>
-    <li><%= link_to "housing swap", listings_housing_swap_path %></li>
-    <li><%= link_to "vacation rentals", listings_vacation_rentals_path%></li>
-    <li><%= link_to "parking / storage", listings_parking_storage_path %></li>
-    <li><%= link_to "office / commercial", listings_office_commercial_path %></li>
-    <li><%= link_to "real esate for sale", listings_real_estate_path %></li>
-  </div>
+  <%= render "links" %>
 
   <div class="current"><h4>Current Listings</h4></div>
 

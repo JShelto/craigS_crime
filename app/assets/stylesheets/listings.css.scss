@@ -84,3 +84,45 @@ p {
 } .green {
 	background: #64ff5c
 }
+
+.links, a {
+	text-decoration:none;
+}
+
+.links, a:hover {
+	color: #fff;
+}
+
+li {
+  display: inline;
+  padding: 0px 5px 0px 10px;
+}
+
+button {
+  background-color: #ccc;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius:6px;
+  color: #fff;
+  font-family: 'Oswald';
+  font-size: 15px;
+  text-decoration: none;
+  cursor: poiner;
+  border:none;
+}
+
+button:hover {
+    border: none;
+    background:#552091;
+    color: #fff;
+    box-shadow: 0px 0px 1px #fff;
+
+}
+
+.locale {
+  color: #FF5F02;
+}
+
+h2 {
+  margin: 0 auto;
+}

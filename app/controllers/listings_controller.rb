@@ -1,6 +1,10 @@
 class ListingsController < ApplicationController
 
 	def index
+		@home_page = true
+	end
+
+	def apartments_housing
 		@listings =[]
 		url = open("https://sfbay.craigslist.org/sfc/apa/")
 		# url = open("public/craigslist.html")
