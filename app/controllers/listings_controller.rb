@@ -7,12 +7,12 @@ class ListingsController < ApplicationController
 
 	def apartments_housing
 		@listings =[]
-		url = open("https://sfbay.craigslist.org/sfc/apa/")
-		# url = open("public/craigslist.html")
+		# url = open("https://sfbay.craigslist.org/sfc/apa/")
+		url = open("public/craigslist_ah.html")
 		url_data = Nokogiri::HTML(url)
 		url_data.css(".row").each do |x|
 			#for each anchor tag, take the href attr and insert the following as the zero-th element
-			x.css("a").each {|a| a["href"] = a["href"].insert(0,"http://sfbay.craigslist.org")}
+			# x.css("a").each {|a| a["href"] = a["href"].insert(0,"http://sfbay.craigslist.org")}
 			#takes each attribute and puts it into a hash with custom keys paired to the selectors provided by the site
 			l = {}
 			l[:link] = x.css('a')[1].attr('href')
@@ -51,12 +51,12 @@ class ListingsController < ApplicationController
 
 	def housing_swap
 		@listings =[]
-		url = open("https://sfbay.craigslist.org/sfc/swp/")
-		# url = open("public/craigslist.html")
+		# url = open("https://sfbay.craigslist.org/sfc/swp/")
+		url = open("public/craigslist_hs.html")
 		url_data = Nokogiri::HTML(url)
 		url_data.css(".row").each do |x|
 			#for each anchor tag, take the href attr and insert the following as the zero-th element
-			x.css("a").each {|a| a["href"] = a["href"].insert(0,"http://sfbay.craigslist.org")}
+			# x.css("a").each {|a| a["href"] = a["href"].insert(0,"http://sfbay.craigslist.org")}
 			#takes each attribute and puts it into a hash with custom keys paired to the selectors provided by the site
 			l = {}
 			l[:link] = x.css('a')[1].attr('href')
@@ -95,12 +95,12 @@ class ListingsController < ApplicationController
 
 	def housing_wanted
 		@listings =[]
-		url = open("https://sfbay.craigslist.org/sfc/hsw/")
-		# url = open("public/craigslist.html")
+		# url = open("https://sfbay.craigslist.org/sfc/hsw/")
+		url = open("public/craigslist_hw.html")
 		url_data = Nokogiri::HTML(url)
 		url_data.css(".row").each do |x|
 			#for each anchor tag, take the href attr and insert the following as the zero-th element
-			x.css("a").each {|a| a["href"] = a["href"].insert(0,"http://sfbay.craigslist.org")}
+			# x.css("a").each {|a| a["href"] = a["href"].insert(0,"http://sfbay.craigslist.org")}
 			#takes each attribute and puts it into a hash with custom keys paired to the selectors provided by the site
 			l = {}
 			l[:link] = x.css('a')[1].attr('href')
@@ -139,12 +139,12 @@ class ListingsController < ApplicationController
 
 	def office_commercial
 		@listings =[]
-		url = open("https://sfbay.craigslist.org/sfc/off/")
-		# url = open("public/craigslist.html")
+		# url = open("https://sfbay.craigslist.org/sfc/off/")
+		url = open("public/craigslist_oc.html")
 		url_data = Nokogiri::HTML(url)
 		url_data.css(".row").each do |x|
 			#for each anchor tag, take the href attr and insert the following as the zero-th element
-			x.css("a").each {|a| a["href"] = a["href"].insert(0,"http://sfbay.craigslist.org")}
+			# x.css("a").each {|a| a["href"] = a["href"].insert(0,"http://sfbay.craigslist.org")}
 			#takes each attribute and puts it into a hash with custom keys paired to the selectors provided by the site
 			l = {}
 			l[:link] = x.css('a')[1].attr('href')
@@ -183,12 +183,12 @@ class ListingsController < ApplicationController
 
 	def parking_storage
 		@listings =[]
-		url = open("https://sfbay.craigslist.org/sfc/prk/")
-		# url = open("public/craigslist.html")
+		# url = open("https://sfbay.craigslist.org/sfc/prk/")
+		url = open("public/craigslist_ps.html")
 		url_data = Nokogiri::HTML(url)
 		url_data.css(".row").each do |x|
 			#for each anchor tag, take the href attr and insert the following as the zero-th element
-			x.css("a").each {|a| a["href"] = a["href"].insert(0,"http://sfbay.craigslist.org")}
+			# x.css("a").each {|a| a["href"] = a["href"].insert(0,"http://sfbay.craigslist.org")}
 			#takes each attribute and puts it into a hash with custom keys paired to the selectors provided by the site
 			l = {}
 			l[:link] = x.css('a')[1].attr('href')
@@ -227,12 +227,12 @@ class ListingsController < ApplicationController
 
 	def real_estate
 		@listings =[]
-		url = open("https://sfbay.craigslist.org/sfc/rea/")
-		# url = open("public/craigslist.html")
+		# url = open("https://sfbay.craigslist.org/sfc/rea/")
+		url = open("public/craigslist_re.html")
 		url_data = Nokogiri::HTML(url)
 		url_data.css(".row").each do |x|
 			#for each anchor tag, take the href attr and insert the following as the zero-th element
-			x.css("a").each {|a| a["href"] = a["href"].insert(0,"http://sfbay.craigslist.org")}
+			# x.css("a").each {|a| a["href"] = a["href"].insert(0,"http://sfbay.craigslist.org")}
 			#takes each attribute and puts it into a hash with custom keys paired to the selectors provided by the site
 			l = {}
 			l[:link] = x.css('a')[1].attr('href')
@@ -271,12 +271,12 @@ class ListingsController < ApplicationController
 
 	def rooms_shared
 		@listings =[]
-		url = open("https://sfbay.craigslist.org/sfc/roo/")
-		# url = open("public/craigslist.html")
+		# url = open("https://sfbay.craigslist.org/sfc/roo/")
+		url = open("public/craigslist_rs.html")
 		url_data = Nokogiri::HTML(url)
 		url_data.css(".row").each do |x|
 			#for each anchor tag, take the href attr and insert the following as the zero-th element
-			x.css("a").each {|a| a["href"] = a["href"].insert(0,"http://sfbay.craigslist.org")}
+			# x.css("a").each {|a| a["href"] = a["href"].insert(0,"http://sfbay.craigslist.org")}
 			#takes each attribute and puts it into a hash with custom keys paired to the selectors provided by the site
 			l = {}
 			l[:link] = x.css('a')[1].attr('href')
@@ -315,12 +315,12 @@ class ListingsController < ApplicationController
 
 	def sublets_temp
 		@listings =[]
-		url = open("https://sfbay.craigslist.org/sfc/sub/")
-		# url = open("public/craigslist.html")
+		# url = open("https://sfbay.craigslist.org/sfc/sub/")
+		url = open("public/craigslist_st.html")
 		url_data = Nokogiri::HTML(url)
 		url_data.css(".row").each do |x|
 			#for each anchor tag, take the href attr and insert the following as the zero-th element
-			x.css("a").each {|a| a["href"] = a["href"].insert(0,"http://sfbay.craigslist.org")}
+			# x.css("a").each {|a| a["href"] = a["href"].insert(0,"http://sfbay.craigslist.org")}
 			#takes each attribute and puts it into a hash with custom keys paired to the selectors provided by the site
 			l = {}
 			l[:link] = x.css('a')[1].attr('href')
@@ -359,12 +359,12 @@ class ListingsController < ApplicationController
 
 	def vacation_rentals
 		@listings =[]
-		url = open("https://sfbay.craigslist.org/sfc/vac/")
-		# url = open("public/craigslist.html")
+		# url = open("https://sfbay.craigslist.org/sfc/vac/")
+		url = open("public/craigslist_vr.html")
 		url_data = Nokogiri::HTML(url)
 		url_data.css(".row").each do |x|
 			#for each anchor tag, take the href attr and insert the following as the zero-th element
-			x.css("a").each {|a| a["href"] = a["href"].insert(0,"http://sfbay.craigslist.org")}
+			# x.css("a").each {|a| a["href"] = a["href"].insert(0,"http://sfbay.craigslist.org")}
 			#takes each attribute and puts it into a hash with custom keys paired to the selectors provided by the site
 			l = {}
 			l[:link] = x.css('a')[1].attr('href')

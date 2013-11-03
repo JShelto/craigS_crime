@@ -1,0 +1,12 @@
+function searchSuggestions(){if(CL.browser.ieVersion<=7){return;}
+$('form').submit(function(){if(catAbb&&($('#catAbb').val()===catAbb)){$('#catAbb').attr('disabled','disabled');}
+normalizeSearchField($('#query'));storeSearchTerm($('#query').val());});function gatherSuggestions(request,response){var term=(request.term||'').trim().toLowerCase();var terms=term.split(' ');var suggestions=[];var remotePromise=$.getJSON('/suggest-search',{v:"3",cat:$("#catAbb").val(),term:request.term});(CL.jls.getItem('searchTerms')||[]).forEach(function(historyItem){var matchedAll=true;terms.forEach(function(term){var m=new RegExp($.ui.autocomplete.escapeRegex(term),"i");if(!historyItem.match(m)){matchedAll=false;}});if(matchedAll){suggestions.push({type:'local',val:historyItem});}});remotePromise.done(function(data){data.forEach(function(item){if(suggestions.indexOf(item)===-1){suggestions.push({type:'remote',val:item});}});suggestions=suggestions.map(function(item){var label=item.val;terms.forEach(function(term){var m=new RegExp("\\b("+$.ui.autocomplete.escapeRegex(term)+")","i");label=label.replace(m,"<b>$1</b>");})
+if(item.type==='local'){label='<span class="local">'+label+'</span><span class="remove">Remove</span>';}
+return{label:label,value:item.val};});response(suggestions);});}
+if(CL.cookies.getItem('cl_b')){$("#query").autocomplete({source:gatherSuggestions,minLength:1,delay:100,select:function(e,ui){if(ui.item.value){var targetChain=e;while(targetChain.originalEvent!==undefined){targetChain=targetChain.originalEvent;}
+var $realtarget=$(targetChain.target||targetChain.srcElement);if($realtarget.is('span.remove')){e.preventDefault();removeSearchTerm(ui.item.value);}}}})
+.each(function(){$(this).data('autocomplete')._renderItem=function(ul,item){return $("<li>").data("item.autocomplete",item)
+.append("<a>"+item.label+"</a>").appendTo(ul);};});}}
+$(document).ready(function(){searchSuggestions();});function storeSearchTerm(term){var searchTerms=CL.jls.getItem('searchTerms')||[];if(searchTerms.indexOf(term)===-1){searchTerms.push(term);CL.jls.setItem('searchTerms',searchTerms);}}
+function removeSearchTerm(term){var searchTerms=CL.jls.getItem('searchTerms')||[];if(searchTerms){searchTerms=searchTerms.filter(function(thisterm){return!(thisterm===term);});CL.jls.setItem('searchTerms',searchTerms);}}
+function normalizeSearchField($input){var clean=$input.val().trim().replace(/\s+/g,' ').toLowerCase();$input.val(clean);}
