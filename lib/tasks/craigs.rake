@@ -2,7 +2,7 @@ require 'open-uri'
 
 desc "This task creates html files from craigslist pages for use with craigsscout-sf in production"
 
-  task :update_feed => :environment do
+  task :update_craigs => :environment do
 
     open("public/craigslist_ah.html", "wb") do |file|
       open("https://sfbay.craigslist.org/sfc/apa/") do |uri|
