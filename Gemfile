@@ -33,6 +33,8 @@ gem 'jquery-rails'
 
 gem 'whenever', :require => false
 
+gem 'rake', '>= 10.1.1'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
