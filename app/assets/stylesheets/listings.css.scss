@@ -11,9 +11,7 @@ body {
 }
 
 .frontpage{
-  background-image: image-url('large_5097078279.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: rgb(134,5,170);
 }
 
 section {
@@ -160,10 +158,8 @@ small {
 @media only screen and (max-width: 942px) {
 
 .frontpage{
-  background: rgb(134,5,170);
   overflow-y: scroll;
 }
-
 
 
 .links ul{
