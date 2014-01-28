@@ -154,28 +154,3 @@ small {
   font-size: 10px;
   float: right;
 }
-
-@media only screen and (max-width: 942px) {
-
-.frontpage{
-  overflow-y: scroll;
-}
-
-
-.links ul{
-  margin: 0 auto;
-}
-
-button {
-  width: calc(90%);
-}
-
-small {
-  display: none;
-}
-
-footer {
-  padding: auto;
-}
-
-}
